@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "RetaurantApp"
+  "defaultProject": "RetaurantApp",
+  "cli": {
+    "analytics": "3bac6f47-599c-4b3a-93f6-b0f311eef3f0"
+  }
 }

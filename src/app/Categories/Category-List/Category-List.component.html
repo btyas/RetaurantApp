@@ -1,0 +1,11 @@
+
+<h1>  Category works   </h1>
+
+<button (click)="getData()">Fetch Data</button>
+
+<div *ngFor="let property of properties" style="text-align:center">
+
+    <app-Category-Card [property] = "property"></app-Category-Card>
+  </div>
+
+

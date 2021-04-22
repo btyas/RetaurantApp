@@ -11,15 +11,26 @@
 
                 <div class="input-group mb-3 mx-auto" style="width: 350px;">
                   <div class="input-group-prepend">
-                    <button class="btn btn-outline-secondary" type="button">Button</button>
+                    <button (click)="BtnClick()" class="btn btn-outline-secondary" type="button">Button</button>
+                    <!-- <input ngx-google-places-autocomplete
+                     (onAddressChange)="AddressChange($event)"/>
+                 {{ formattedaddress }} -->
+
+                   <input class="form-control" placeholder="Saisir votre ville"  aria-label="" aria-describedby="basic-addon1">
+
                   </div>
-               <!--  <input ngx-google-places-autocomplete placeholder="Saisir votre adreese ou ville"
-                  (onAddressChange)="AddressChange($event)" type="text" class="form-control"  aria-label="" aria-describedby="basic-addon1">
-                  <p>{{formattedaddress}}</p>   -->
-                </div>
+
+                <!-- <input ngx-google-y placeholder="Saisir votre adreese ou ville"
+                  (onAddressChange)="AddressChange($event)" type="text" class="form-control"  aria-label="" aria-describedby="basic-addon1"> -->
+
+
+                  </div>
+
+
 
 
      </div>
+     <span> <p>{{formattedaddress}}</p> </span>
 
  </div>
 

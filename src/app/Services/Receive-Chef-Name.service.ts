@@ -25,8 +25,6 @@ getAllProperties () : Observable<IPropertyBaseCity[]> {
       }
 
 
-
-
 }
 
 

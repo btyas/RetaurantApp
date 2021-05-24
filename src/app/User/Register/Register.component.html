@@ -20,33 +20,31 @@
           <div class="tab-content" id="myTabContent">
               <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                   <h3 class="register-heading">S'enregistrer en tant que indépendant</h3>
-                  <form [formGroup] = "registrationForm1" (ngSubmit) ="onSubmit()" class="row register-form">
+                  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="row register-form">
                       <div class="col-md-6">
                           <div class="form-group">
-                              <input formControlName= "firstName1" type="text" class="form-control" placeholder="First Name *" value="" />
-
+                              <input formControlName= "firstName" type="text" class="form-control" placeholder="First Name *" value="" />
                           </div>
                           <div class="form-group">
-                              <input formControlName ="lastName1" type="text" class="form-control" placeholder="Last Name *" value="" />
-
+                              <input formControlName ="lastName" type="text" class="form-control" placeholder="Last Name *" value="" />
                           </div>
                           <div class="form-group">
-                              <input type="password" id="password" class="form-control" formControlName="password1" placeholder="Password *" value="" />
+                              <input type="password" id="password" class="form-control"  placeholder="Password *" value="" />
 
                             </div>
                           <div class="form-group">
-                              <input type="password" formControlName="confirmPassword1"  id="confirmPassword" class="form-control"  placeholder="Confirm Password *" value="" />
+                              <input type="password" formControlName="confirmPassword"  id="confirmPassword" class="form-control"  placeholder="Confirm Password *" value="" />
 
                            </div>
 
-                          <div formGroupName= "RadioForm"   class="form-group">
+                          <div class="form-group">
                               <div class="maxl">
                                   <label class="radio inline">
-                                      <input  formControlName="Radio1" type="radio"  value="male" checked>
+                                      <input type="radio" name="gender" value="male" checked>
                                       <span> Male </span>
                                   </label>
                                   <label class="radio inline">
-                                      <input  formControlName="Radio2" type="radio"  value="female">
+                                      <input type="radio" name="gender" value="female">
                                       <span>Female </span>
                                   </label>
                               </div>
@@ -54,16 +52,16 @@
                        </div>
                  <div class="col-md-6">
                           <div class="form-group">
-                              <input formControlName="email1" type="email" class="form-control" placeholder="Your Email *" value="" />
+                              <input type="email" class="form-control" placeholder="Your Email *" value="" />
                           </div>
                           <div class="form-group">
-                              <input type="text" formControlName="Phone1" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="mobile *"  />
+                              <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" />
                           </div>
                           <div class="form-group">
-                            <input type="text" formControlName="Adresse1"  class="form-control" placeholder=" Votre Adresse" value=""/>
+                            <input type="text" class="form-control" placeholder="Adresse" value="" />
                            </div>
                           <div class="form-group">
-                          <input type="text" formControlName="ZIP1" class="form-control" placeholder="Code Postale" value="" />
+                          <input type="text" class="form-control" placeholder="Code Postale" value="" />
                           </div>
                           <input type="submit" class="btnRegister"  value="Register"/>
                   </div>
@@ -75,39 +73,39 @@
 
               <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                   <h3  class="register-heading">S'enregistrer en tant que restaurateur</h3>
-                  <form [formGroup]= "registrationForm2"  (ngSubmit) = "onSubmit()" class="row register-form">
+                  <div class="row register-form">
                       <div class="col-md-6">
                           <div class="form-group">
-                              <input formControlName="firstName2" type="text" class="form-control" placeholder="First Name *"  value="" />
+                              <input type="text" class="form-control" placeholder="First Name *" value="" />
                           </div>
                           <div class="form-group">
-                              <input formControlName="lastName2" type="text" class="form-control" placeholder="Last Name *" value="" />
+                              <input type="text" class="form-control" placeholder="Last Name *" value="" />
                           </div>
                           <div class="form-group">
-                              <input formControlName="email2" type="email" class="form-control" placeholder="Email *" value="" />
+                              <input type="email" class="form-control" placeholder="Email *" value="" />
                           </div>
                           <div class="form-group">
-                              <input type="text" formControlName="Phone2" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
+                              <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
                           </div>
 
 
                       </div>
                       <div class="col-md-6">
                           <div class="form-group">
-                              <input formControlName="password2" type="password" class="form-control" placeholder="Password *" value="" />
+                              <input type="password" class="form-control" placeholder="Password *" value="" />
                           </div>
                           <div class="form-group">
-                              <input formControlName="confirmPassword2" type="password" class="form-control" placeholder="Confirm Password *" value="" />
+                              <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
                           </div>
                           <div class="form-group">
-                            <input formControlName="Adresse2" type="text" class="form-control" placeholder="Adresse" value="" />
+                            <input type="text" class="form-control" placeholder="Adresse" value="" />
                         </div>
                         <div class="form-group">
-                          <input formControlName="ZIP2" type="text" class="form-control" placeholder="Code Postale" value="" />
+                          <input type="text" class="form-control" placeholder="Code Postale" value="" />
                       </div>
                           <input type="submit" class="btnRegister"  value="Register"/>
                       </div>
-                  </form>
+                  </div>
               </div>
               </div>
           </div>

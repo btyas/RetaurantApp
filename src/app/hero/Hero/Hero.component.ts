@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeroComponent implements OnInit {
   formattedaddress=" ";
-  testbtn = true;
+
   constructor(private citiesService : ReceiveChefNameService) { }
 
   ngOnInit() {
@@ -20,20 +20,14 @@ export class HeroComponent implements OnInit {
 
   }
 
+  options = {
 
-  options={
-    componentRestrictions:{
-      country:["fr"]
-    }
-  }
+      componentRestrictions: { country: "fr" }
 
-  BtnClick(){
-    this.testbtn= !this.testbtn
-  }
+
+     }
   public AddressChange(address: any) {
   //setting address from API to local variable
    this.formattedaddress=address.formatted_address;
-
-   console.log(this.formattedaddress);
 }
 }

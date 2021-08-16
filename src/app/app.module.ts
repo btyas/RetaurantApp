@@ -1,3 +1,4 @@
+
 import { ReceiveChefNameService } from './Services/Receive-Chef-Name.service';
 import { LoginComponent } from './User/Login/Login.component';
 import { CategoryListComponent } from './Categories/Category-List/Category-List.component';
@@ -14,6 +15,7 @@ import { RegisterComponent } from './User/Register/Register.component';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserLoginServiceService } from './Services/User-Login-Service.service';
 
 
 @NgModule({
@@ -40,7 +42,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
   ],
-  providers: [ReceiveChefNameService],
+  providers: [ReceiveChefNameService, UserLoginServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

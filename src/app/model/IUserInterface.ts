@@ -16,5 +16,7 @@ export interface IUserInterface {
 
    CodePostalUser : number,
 
+
+
    Password : string
 }

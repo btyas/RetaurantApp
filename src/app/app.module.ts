@@ -16,6 +16,8 @@ import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserLoginServiceService } from './Services/User-Login-Service.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { UserLoginServiceService } from './Services/User-Login-Service.service';
     //GooglePlaceModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MDBBootstrapModule.forRoot(),
 
 
   ],

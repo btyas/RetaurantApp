@@ -1,0 +1,38 @@
+
+<div class="container register">
+
+  <div class="row">
+      <div class="col-md-3 register-left">
+
+          <h3>Welcome</h3>
+          <input type="submit" name="" value="Register" routerLink ="/User-login" routerLinkActive="active"/><br/>
+              </div>
+     <div class="col-md-9 register-right">
+      <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Restaurateur</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Indépendent</a>
+        </li>
+    </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()" class="row register-form">
+
+            <div class="col-md-6">
+
+              <div class="form-group">
+                <input type="email" formControlName ="emailLogin" class="form-control" placeholder="Your Email *" value="bt@gmail.com" />
+                </div>
+
+                  <div class="form-group">
+                     <input type="password" formControlName="PasswordLogin" id="Password" class="form-control" placeholder="Your Password  *"  value="btyas1990" />
+                  </div>
+
+                  <input type="submit" class="btnRegister"  value="Login"/>
+            </div>
+
+          </form>
+     </div>
+

@@ -1,3 +1,4 @@
+import { UserLogin } from './../model/UserLogin';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -8,7 +9,9 @@ import { User } from '../model/User';
 })
 export class UserLoginServiceService {
 
-  url = "http://localhost:52137/api/User/AddUser";
+  urlAddUser = "http://localhost:52137/api/User/AddUser";
+
+  urlLoginUser ="http://localhost:52137/api/User/loginUser";
 
 constructor(private http : HttpClient) { }
 
@@ -21,9 +24,19 @@ NewUserSave(newUser : User) : Observable<any>
       console.log(body);
 
       console.log(newUser);
-      return this.http.post<any>(this.url , body,{'headers':headers})
+      return this.http.post<any>(this.urlAddUser , body,{'headers':headers})
       //  console.log(newUser);
       //  return this.http.post<User>(this.url, newUser);
+}
+
+NewLoginUser(loginUser : UserLogin) : Observable <any>
+{
+  const headers = { 'content-type' : 'application/json'}
+  const body = JSON.stringify(loginUser);
+
+  console.log(loginUser);
+
+  return this.http.post<any>(this.urlLoginUser, body, {'headers' : headers})
 }
 
 }

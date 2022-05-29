@@ -19,6 +19,8 @@ import { UserLoginServiceService } from './Services/User-Login-Service.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
+import { HereComponent } from './hero/here/here-map.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     CategoryCardComponent,
     CategoryListComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    HereComponent
+    
 
 
 

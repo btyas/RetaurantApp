@@ -1,4 +1,5 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { map } from '@here/maps-api-for-javascript';
 declare var H : any;
 @Component({
   selector: 'app-hero-here',
@@ -27,15 +28,41 @@ export class HereComponent implements OnInit {
 
   public ngAfterViewInit() {
     let defaultLayers = this.platform.createDefaultLayers();
-    let map = new H.Map(
+    var map = new H.Map(
         this.mapElement.nativeElement,
         defaultLayers.vector.normal.map,
         {
-            zoom: 10,
-            center: { lat: 37.7397, lng: -121.4252 },
-            
+            zoom: 20,
+            center: { lat: 48.787442, lng: 2.301786 },
+            pixelRatio: window.devicePixelRatio || 1
         }
+      
+       
+      
     );
+    map.addObject(new H.map.Circle(
+      // The central point of the circle
+      {lat: 48.787442, lng: 2.301786 },
+      // The radius of the circle in meters
+      1,
+      {
+        style: {
+          strokeColor: 'rgba(55, 85, 170, 0.6)', // Color of the perimeter
+          lineWidth: 2,
+          fillColor: 'rgba(0, 128, 0, 0.7)'  // Color of the circle
+        }
+      }
+    ));
+    window.addEventListener('resize', () => map.getViewPort().resize());
+
+    var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+// Create the default UI components
+     var ui = H.ui.UI.createDefault(map, defaultLayers);
+   /// this.addCircleToMap();
 }
 
+  
+  
 }
+

@@ -32,7 +32,7 @@ export class HereComponent implements OnInit {
         this.mapElement.nativeElement,
         defaultLayers.vector.normal.map,
         {
-            zoom: 20,
+            zoom: 8,
             center: { lat: 48.787442, lng: 2.301786 },
             pixelRatio: window.devicePixelRatio || 1
         }

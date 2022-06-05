@@ -28,23 +28,24 @@ export class HereComponent implements OnInit {
 
   public ngAfterViewInit() {
     let defaultLayers = this.platform.createDefaultLayers();
-    var map = new H.Map(
+     var map = new H.Map(
         this.mapElement.nativeElement,
         defaultLayers.vector.normal.map,
         {
-            zoom: 8,
+            zoom: 10,
             center: { lat: 48.787442, lng: 2.301786 },
             pixelRatio: window.devicePixelRatio || 1
         }
-      
+    
        
-      
+        
     );
+   
     map.addObject(new H.map.Circle(
       // The central point of the circle
       {lat: 48.787442, lng: 2.301786 },
       // The radius of the circle in meters
-      1,
+      80,
       {
         style: {
           strokeColor: 'rgba(55, 85, 170, 0.6)', // Color of the perimeter
@@ -54,15 +55,13 @@ export class HereComponent implements OnInit {
       }
     ));
     window.addEventListener('resize', () => map.getViewPort().resize());
-
-    var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
-
+    
+    
+      map.setZoom(20);
 // Create the default UI components
-     var ui = H.ui.UI.createDefault(map, defaultLayers);
+     
    /// this.addCircleToMap();
 }
 
-  
-  
 }
 

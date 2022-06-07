@@ -45,7 +45,7 @@ export class HereComponent implements OnInit {
       // The central point of the circle
       {lat: 48.787442, lng: 2.301786 },
       // The radius of the circle in meters
-      80,
+      1,
       {
         style: {
           strokeColor: 'rgba(55, 85, 170, 0.6)', // Color of the perimeter
@@ -57,7 +57,7 @@ export class HereComponent implements OnInit {
     window.addEventListener('resize', () => map.getViewPort().resize());
     
     
-      map.setZoom(20);
+      map.setZoom(15);
 // Create the default UI components
      
    /// this.addCircleToMap();

@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { map } from '@here/maps-api-for-javascript';
+import { StationServiceService } from 'src/app/Services/station-service.service';
 declare var H : any;
 @Component({
   selector: 'app-hero-here',
@@ -17,7 +18,7 @@ export class HereComponent implements OnInit {
     
 
 
-   public constructor() { 
+   public constructor(private stationservice : StationServiceService) { 
     this.platform = new H.service.Platform({
       "apikey": "LiRZRGrB5GGyObd9fiGgXHgNyLghYC9UXkiakTl-KLQ"
   });
@@ -28,6 +29,8 @@ export class HereComponent implements OnInit {
 
   public ngAfterViewInit() {
     let defaultLayers = this.platform.createDefaultLayers();
+   console.log(this.stationservice.getAllStationsProp()); 
+    
      var map = new H.Map(
         this.mapElement.nativeElement,
         defaultLayers.vector.normal.map,
@@ -40,7 +43,7 @@ export class HereComponent implements OnInit {
        
         
     );
-   
+     
     map.addObject(new H.map.Circle(
       // The central point of the circle
       {lat: 48.787442, lng: 2.301786 },

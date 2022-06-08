@@ -15,7 +15,7 @@ export class HereComponent implements OnInit {
     @ViewChild("map")
     public mapElement!: ElementRef;
     private platform : any;
-    private st : any;
+    private st : Station = new Station();
   
     
       
@@ -25,12 +25,12 @@ export class HereComponent implements OnInit {
     this.platform = new H.service.Platform({
       "apikey": "LiRZRGrB5GGyObd9fiGgXHgNyLghYC9UXkiakTl-KLQ"
   });
-    this.st = new Station();
+      
       
    }
    
     public ngOnInit(): void {
-      
+      console.log(this.stationservice.SaveStation(this.FillStationFileds())) ;
   }
 
   public ngAfterViewInit() {
@@ -39,9 +39,9 @@ export class HereComponent implements OnInit {
     
       
 
-      console.log(this.st);
+     
 
-      this.stationservice.SaveStaion(this.st);
+     
         
 
      var map = new H.Map(
@@ -78,6 +78,13 @@ export class HereComponent implements OnInit {
      
    /// this.addCircleToMap();
 }
+    
+ FillStationFileds(){
+    this.st.AdressPostal = "92220";
+    this.st.NameCity="bagneux";
+    console.log(this.st);
 
+    return this.st;
+   }
 }
 

@@ -25,7 +25,7 @@ export class StationServiceService {
    }
 
 
-   SaveStaion( st : Station) : Observable<any>
+   SaveStation( st : Station) : Observable<any>
    {
     const headers = { 'content-type' : 'application/json'}
     const body = JSON.stringify(st);

@@ -11,7 +11,7 @@ export class UserLoginServiceService {
 
   urlAddUser = "http://localhost:52137/api/User/AddUser";
 
-  urlLoginUser ="http://localhost:52137/api/User/LoginUser";
+  urlLoginUser ="http://localhost:52137/api/Station/";
 
 constructor(private http : HttpClient) { }
 

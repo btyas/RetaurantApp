@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { map } from '@here/maps-api-for-javascript';
+import { Station } from 'src/app/model/Station';
 import { StationServiceService } from 'src/app/Services/station-service.service';
 declare var H : any;
 @Component({
@@ -14,23 +15,35 @@ export class HereComponent implements OnInit {
     @ViewChild("map")
     public mapElement!: ElementRef;
     private platform : any;
-
+    private st : any;
+  
     
-
+      
+       
 
    public constructor(private stationservice : StationServiceService) { 
     this.platform = new H.service.Platform({
       "apikey": "LiRZRGrB5GGyObd9fiGgXHgNyLghYC9UXkiakTl-KLQ"
   });
+    this.st = new Station();
+      
    }
    
     public ngOnInit(): void {
+      
   }
 
   public ngAfterViewInit() {
     let defaultLayers = this.platform.createDefaultLayers();
-   console.log(this.stationservice.getAllStationsProp()); 
+   //console.log(this.stationservice.getAllStationsProp()); 
     
+      
+
+      console.log(this.st);
+
+      this.stationservice.SaveStaion(this.st);
+        
+
      var map = new H.Map(
         this.mapElement.nativeElement,
         defaultLayers.vector.normal.map,

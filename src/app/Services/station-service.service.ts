@@ -9,7 +9,7 @@ import { Station } from '../model/Station';
 })
 export class StationServiceService {
 
-  url = "http://localhost:5000/api/Station/ListAvailibleStation";   
+  url = "http://localhost:5000/api/Station/ListAvailibleStations";   
    // url to change for specific services
   urlSaveStation ="http://localhost:5000/api/Station/SaveStation";
   
@@ -21,7 +21,7 @@ export class StationServiceService {
 
    getAllStationsProp() : Observable<Isation[]> {
 
-    return this.http.get<Isation[]>(this.url);
+    return this.http.get<any>(this.url);
    }
 
 
@@ -29,6 +29,6 @@ export class StationServiceService {
    {
     const headers = { 'content-type' : 'application/json'}
     const body = JSON.stringify(st);
-    return this.http.post<any>(this.urlSaveStation, body, {'headers' : headers})
+    return this.http.post<any>(this.urlSaveStation, body, {'headers' : headers});
    }
 }

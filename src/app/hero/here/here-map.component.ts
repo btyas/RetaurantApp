@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { map } from '@here/maps-api-for-javascript';
+import { Isation } from 'src/app/model/isation';
 import { Station } from 'src/app/model/Station';
 import { StationServiceService } from 'src/app/Services/station-service.service';
 declare var H : any;
@@ -30,7 +31,7 @@ export class HereComponent implements OnInit {
    }
    
     public ngOnInit(): void {
-      console.log(this.stationservice.SaveStation(this.FillStationFileds())) ;
+      console.log(this.stationservice.getAllStationsProp()) ;
   }
 
   public ngAfterViewInit() {
@@ -48,7 +49,7 @@ export class HereComponent implements OnInit {
         this.mapElement.nativeElement,
         defaultLayers.vector.normal.map,
         {
-            zoom: 10,
+            zoom: 8,
             center: { lat: 48.787442, lng: 2.301786 },
             pixelRatio: window.devicePixelRatio || 1
         }
@@ -56,7 +57,9 @@ export class HereComponent implements OnInit {
        
         
     );
-     
+    
+
+
     map.addObject(new H.map.Circle(
       // The central point of the circle
       {lat: 48.787442, lng: 2.301786 },
@@ -80,10 +83,10 @@ export class HereComponent implements OnInit {
 }
     
  FillStationFileds(){
-    this.st.AdressPostal = "92220";
-    this.st.NameCity="bagneux";
-    console.log(this.st);
-
+    this.st.AdressPostal = "92222";
+    this.st.NameCity="cachan";
+    this.st.Status = false;
+    
     return this.st;
    }
 }

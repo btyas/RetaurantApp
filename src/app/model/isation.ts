@@ -5,6 +5,8 @@ export interface Isation {
          StreetName : string,
 
         
+         streetId : number,
+
          AdressPostal : string
 
          PosLatitude : number,

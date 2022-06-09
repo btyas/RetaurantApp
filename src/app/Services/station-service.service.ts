@@ -9,9 +9,9 @@ import { Station } from '../model/Station';
 })
 export class StationServiceService {
 
-  url = 'http://localhost:5000/api/Station/ListAvailibleStation';   
+  url = "http://localhost:5000/api/Station/ListAvailibleStation";   
    // url to change for specific services
-  urlSaveStation ='http://localhost:5000/api/Station/SaveStation';
+  urlSaveStation ="http://localhost:5000/api/Station/SaveStation";
   
   constructor(private http : HttpClient) { 
    

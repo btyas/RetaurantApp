@@ -36,6 +36,14 @@ export class HereComponent implements OnInit {
         (err : any) => console.log(err),
         ()=> console.log('Done getting data')
       )) ;
+      
+      this.st.StreetName ="this is street test on nginit";
+
+      console.log(this.stationservice.SaveStation(this.st).subscribe(
+        (response) => console.log(response),
+        (err : any) => console.log(err),
+        ()=> console.log('Done sending station data')
+      ));
   }
 
   public ngAfterViewInit() {

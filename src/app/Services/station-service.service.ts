@@ -25,10 +25,10 @@ export class StationServiceService {
    }
 
 
-   SaveStation( st : Station) : Observable<any>
+   SaveStation( st : Station) : Observable<Isation>
    {
-    const headers = { 'content-type' : 'application/json'}
-    const body = JSON.stringify(st);
-    return this.http.post<any>(this.urlSaveStation, body, {'headers' : headers});
+     //const headers = { 'content-type' : 'application/json'}
+    //const body = JSON.stringify(st);
+    return this.http.post<Isation>(this.urlSaveStation, st);
    }
 }

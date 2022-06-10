@@ -21,7 +21,7 @@ export class StationServiceService {
 
    getAllStationsProp() : Observable<Isation[]> {
 
-    return this.http.get<any>(this.url);
+    return this.http.get<Isation[]>(this.url);
    }
 
 

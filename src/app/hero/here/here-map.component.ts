@@ -31,7 +31,11 @@ export class HereComponent implements OnInit {
    }
    
     public ngOnInit(): void {
-      console.log(this.stationservice.getAllStationsProp()) ;
+      console.log(this.stationservice.getAllStationsProp().subscribe(
+        (response) => console.log(response),
+        (err : any) => console.log(err),
+        ()=> console.log('Done getting data')
+      )) ;
   }
 
   public ngAfterViewInit() {
@@ -89,5 +93,7 @@ export class HereComponent implements OnInit {
     
     return this.st;
    }
+
+
 }
 

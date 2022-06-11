@@ -32,7 +32,7 @@ export class HereComponent implements OnInit {
    
     public ngOnInit(): void {
       console.log(this.stationservice.getAllStationsProp().subscribe(
-        (response) => console.log(response),
+        (response) => console.table(response),
         (err : any) => console.log(err),
         ()=> console.log('Done getting data')
       )) ;
@@ -40,7 +40,7 @@ export class HereComponent implements OnInit {
       this.st.StreetName ="this is street test on nginit";
 
       console.log(this.stationservice.SaveStation(this.st).subscribe(
-        (response) => console.log(response),
+        (response) => console.table(response),
         (err : any) => console.log(err),
         ()=> console.log('Done sending station data')
       ));

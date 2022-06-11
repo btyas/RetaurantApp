@@ -12,6 +12,8 @@ export class StationServiceService {
   url = "http://localhost:5000/api/Station/ListAvailibleStations";   
    // url to change for specific services
   urlSaveStation ="http://localhost:5000/api/Station/SaveStation";
+
+  urlDeleteSation = "http://localhost:5000/api/Station/DeleteStation";
   
   constructor(private http : HttpClient) { 
    

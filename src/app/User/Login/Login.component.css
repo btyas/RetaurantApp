@@ -75,7 +75,7 @@
   padding: 2%;
   height: 34px;
   font-weight: 600;
-  color: #fff;
+  color: rgb(24, 12, 54);
   border-top-right-radius: 1.5rem;
   border-bottom-right-radius: 1.5rem;
 }
@@ -101,7 +101,7 @@
   display:block;
   width: 100%;
   height: 100vh ;
-  background: url(../../../assets/images/c1.jpg)  center;
+  background:  center;
   background-size:cover ;
 
 }

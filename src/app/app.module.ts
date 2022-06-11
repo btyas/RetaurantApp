@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import { HereComponent } from './hero/here/here-map.component';
+import { SaveStationComponent } from './hero/save-station/save-station.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { HereComponent } from './hero/here/here-map.component';
     CategoryListComponent,
     RegisterComponent,
     LoginComponent,
-    HereComponent
+    HereComponent,
+    SaveStationComponent
     
 
 

@@ -53,7 +53,7 @@ export class HereComponent implements OnInit {
         {
           pixelRatio: window.devicePixelRatio,
           center: {lat: 48.8182, lng: 2.3212},
-          zoom: 15,
+          zoom: 20,
         },
       );
       this.map = map;

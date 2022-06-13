@@ -21,6 +21,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import { HereComponent } from './hero/here/here-map.component';
 import { SaveStationComponent } from './hero/save-station/save-station.component';
+import { MapZoomComponent } from './hero/map-zoom/map-zoom.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { SaveStationComponent } from './hero/save-station/save-station.component
     RegisterComponent,
     LoginComponent,
     HereComponent,
-    SaveStationComponent
+    SaveStationComponent,
+    MapZoomComponent
     
 
 

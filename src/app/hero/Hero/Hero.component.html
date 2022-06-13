@@ -9,7 +9,14 @@
               
           </div>
                    
-          <app-hero-here>   </app-hero-here>
+          <app-hero-here
+          [zoom]="zoom"
+           [lat]="lat"
+          [lng]="lng"
+          
+          >   </app-hero-here>
+
+          <app-map-zoom  (notify)="handleInputChange($event)" > </app-map-zoom>
                 <!--
                 <div class="input-group mb-3 mx-auto" style="width: 350px;">
                   <div class="input-group-prepend">

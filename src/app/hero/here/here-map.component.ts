@@ -1,9 +1,9 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { map } from '@here/maps-api-for-javascript';
 import { Isation } from 'src/app/model/isation';
 import { Station } from 'src/app/model/Station';
 import { StationServiceService } from 'src/app/Services/station-service.service';
-declare var H : any;
+
 @Component({
   selector: 'app-hero-here',
   templateUrl: './here-map.component.html',
@@ -11,10 +11,16 @@ declare var H : any;
 })
 export class HereComponent implements OnInit {
    
-   
 
-    @ViewChild("map")
+  private map?: H.Map;
+  @Input() public zoom = 2;
+  @Input() public lat = 0;
+  @Input() public lng = 0;
+ 
+
+  @ViewChild('map') mapDiv?: ElementRef; 
     public mapElement!: ElementRef;
+
     private platform : any;
     private st : Station = new Station();
   
@@ -23,76 +29,44 @@ export class HereComponent implements OnInit {
        
 
    public constructor(private stationservice : StationServiceService) { 
-    this.platform = new H.service.Platform({
+    /*this.platform = new H.service.Platform({
       "apikey": "LiRZRGrB5GGyObd9fiGgXHgNyLghYC9UXkiakTl-KLQ"
-  });
+  });*/
       
       
    }
    
     public ngOnInit(): void {
-      console.log(this.stationservice.getAllStationsProp().subscribe(
-        (response) => console.table(response),
-        (err : any) => console.log(err),
-        ()=> console.log('Done getting data')
-      )) ;
       
-      this.st.StreetName ="this is street test on nginit";
-
-      console.log(this.stationservice.SaveStation(this.st).subscribe(
-        (response) => console.table(response),
-        (err : any) => console.log(err),
-        ()=> console.log('Done sending station data')
-      ));
   }
 
   public ngAfterViewInit() {
-    let defaultLayers = this.platform.createDefaultLayers();
-   //console.log(this.stationservice.getAllStationsProp()); 
-    
-      
-
-     
-
-     
-        
-
-     var map = new H.Map(
-        this.mapElement.nativeElement,
-        defaultLayers.vector.normal.map,
+    if (!this.map && this.mapDiv) {
+      // instantiate a platform, default layers and a map as usual
+      const platform = new H.service.Platform({
+        apikey: 'LiRZRGrB5GGyObd9fiGgXHgNyLghYC9UXkiakTl-KLQ'
+      });
+      const layers = platform.createDefaultLayers();
+      const map = new H.Map(
+        this.mapDiv.nativeElement,
+        layers.vector.normal.map,
         {
-            zoom: 8,
-            center: { lat: 48.787442, lng: 2.301786 },
-            pixelRatio: window.devicePixelRatio || 1
-        }
-    
-       
-        
-    );
-    
+          pixelRatio: window.devicePixelRatio,
+          center: {lat: 48.8182, lng: 2.3212},
+          zoom: 15,
+        },
+      );
+      this.map = map;
+    }
+  }
 
-
-    map.addObject(new H.map.Circle(
-      // The central point of the circle
-      {lat: 48.787442, lng: 2.301786 },
-      // The radius of the circle in meters
-      1,
-      {
-        style: {
-          strokeColor: 'rgba(55, 85, 170, 0.6)', // Color of the perimeter
-          lineWidth: 2,
-          fillColor: 'rgba(0, 128, 0, 0.7)'  // Color of the circle
-        }
-      }
-    ));
-    window.addEventListener('resize', () => map.getViewPort().resize());
-    
-    
-      map.setZoom(15);
-// Create the default UI components
      
-   /// this.addCircleToMap();
-}
+
+     
+        
+
+   
+      
     
  FillStationFileds(){
     this.st.AdressPostal = "92222";
@@ -102,6 +76,22 @@ export class HereComponent implements OnInit {
     return this.st;
    }
 
+   ngOnChanges(changes: SimpleChanges) {
+    if (this.map) {
+      if (changes.zoom !== undefined) {
+        this.map.setZoom(changes.zoom.currentValue);
+      }
+      if (changes.lat !== undefined) {
+        this.map.setCenter({lat: changes.lat.currentValue, lng: this.lng});
+      }
+      if (changes.lng !== undefined) {
+        this.map.setCenter({lat: this.lat, lng: changes.lng.currentValue});
+      }
+    }
 
 }
 
+
+ 
+
+}

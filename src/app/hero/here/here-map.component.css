@@ -4,3 +4,9 @@ opacity: 0.8;
 margin-left: 10%;
 width: 100%;
 }
+
+#map {
+    width: 1000px;
+    height: 400px;
+    margin-left: 10%;
+  }

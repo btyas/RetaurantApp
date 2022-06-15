@@ -7,4 +7,6 @@
 4    npm instal
 # Error: Could not find the '@angular-devkit/build-angular:dev-server' builder's node package.
   npm install --save-dev @angular-devkit/build-angular
+
+  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ---Change branch
